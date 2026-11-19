@@ -72,3 +72,30 @@ test("one noisy rule can't crowd out earlier matches from other rules", () => {
   const r = scan(engine, text, { limit: 5000 });
   assert.equal(r.matches.filter((m) => /tapestry/i.test(m.text)).length, 3);
 });
+
+test("when two rules mark the same words, the one with a fix wins", () => {
+  const m = scan(engine, "Let's delve into it.").matches.find((x) => /delve/i.test(x.text));
+  assert.ok(m && m.fix, "delve should come with a fix");
+});
+
+test("fixes read as plain advice, not bracketed placeholders", () => {
+  assert.ok(!doc.rules.some((r) => r.fix && /^\[.*\]$/.test(r.fix)));
+});
+
+test("no rule quotes a maintainer's correction example (checked when ~/.margin/margin.db is present)", async (t) => {
+  const { execFileSync } = await import("node:child_process");
+  const os = await import("node:os");
+  const db = `${os.homedir()}/.margin/margin.db`;
+  if (!fs.existsSync(db)) return t.skip("no Margin database");
+  const rows = JSON.parse(execFileSync("sqlite3", [db,
+    "select json_group_array(x) from (select example_before x from writing_rules union all select example_after from writing_rules) where length(x) >= 25"],
+  { encoding: "utf8" }));
+  const grams = (s) => {
+    const w = s.toLowerCase().match(/[a-z']+/g) || [];
+    return w.slice(0, Math.max(0, w.length - 5)).map((_, i) => w.slice(i, i + 6).join(" "));
+  };
+  const examples = new Set(rows.flatMap(grams));
+  for (const r of doc.rules) {
+    for (const g of grams(`${r.pattern} ${r.note} ${r.fix || ""}`)) assert.ok(!examples.has(g), `${r.id} quotes "${g}"`);
+  }
+});

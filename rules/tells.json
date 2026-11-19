@@ -1,6 +1,6 @@
 {
  "name": "tells",
- "version": "0.1.0",
+ "version": "0.2.0",
  "about": "Phrases and sentence shapes that make prose read machine-made. Each rule is a candidate for a reader to judge, not proof of who wrote the text.",
  "credits": [
   "declauding linter by Oskar Austegard (MIT): https://github.com/oaustegard/claude-skills",
@@ -2295,7 +2295,7 @@
    "pattern": "\\btapestry\\b",
    "flags": "gi",
    "note": "'tapestry' reads machine-made",
-   "fix": "[delete or be specific]",
+   "fix": "delete or be specific",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2323,7 +2323,7 @@
    "pattern": "\\btestament\\b",
    "flags": "gi",
    "note": "'testament' reads machine-made",
-   "fix": "[delete or show the evidence]",
+   "fix": "delete or show the evidence",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2337,7 +2337,7 @@
    "pattern": "\\bmultifaceted\\b",
    "flags": "gi",
    "note": "'multifaceted' reads machine-made",
-   "fix": "[be specific about which facets]",
+   "fix": "be specific about which facets",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2351,7 +2351,7 @@
    "pattern": "\\bintricate\\b",
    "flags": "gi",
    "note": "'intricate' reads machine-made",
-   "fix": "[describe the complexity]",
+   "fix": "describe the complexity",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2365,7 +2365,7 @@
    "pattern": "\\bnuanced\\b",
    "flags": "gi",
    "note": "'nuanced' reads machine-made",
-   "fix": "[show the nuance instead]",
+   "fix": "show the nuance instead",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2393,7 +2393,7 @@
    "pattern": "\\blandscape\\b",
    "flags": "gi",
    "note": "'landscape' reads machine-made",
-   "fix": "[delete or be specific]",
+   "fix": "delete or be specific",
    "source": "ai-slop-check",
    "tier": "hint",
    "qa": {
@@ -2575,7 +2575,7 @@
    "pattern": "\\brobust\\b",
    "flags": "gi",
    "note": "'robust' reads machine-made",
-   "fix": "[describe what makes it strong]",
+   "fix": "describe what makes it strong",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2589,7 +2589,7 @@
    "pattern": "\\bseamless\\b",
    "flags": "gi",
    "note": "'seamless' reads machine-made",
-   "fix": "[describe the experience]",
+   "fix": "describe the experience",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2603,7 +2603,7 @@
    "pattern": "\\bseamlessly\\b",
    "flags": "gi",
    "note": "'seamlessly' reads machine-made",
-   "fix": "[describe how]",
+   "fix": "describe how",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2617,7 +2617,7 @@
    "pattern": "\\bgroundbreaking\\b",
    "flags": "gi",
    "note": "'groundbreaking' reads machine-made",
-   "fix": "[show what ground was broken]",
+   "fix": "show what ground was broken",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2631,7 +2631,7 @@
    "pattern": "\\binnovative\\b",
    "flags": "gi",
    "note": "'innovative' reads machine-made",
-   "fix": "[show what is new]",
+   "fix": "show what is new",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2645,7 +2645,7 @@
    "pattern": "\\bcutting\\-edge\\b",
    "flags": "gi",
    "note": "'cutting-edge' reads machine-made",
-   "fix": "[describe the technology]",
+   "fix": "describe the technology",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2659,7 +2659,7 @@
    "pattern": "\\bstate\\-of\\-the\\-art\\b",
    "flags": "gi",
    "note": "'state-of-the-art' reads machine-made",
-   "fix": "[describe what is advanced]",
+   "fix": "describe what is advanced",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2673,7 +2673,7 @@
    "pattern": "\\bholistic\\b",
    "flags": "gi",
    "note": "'holistic' reads machine-made",
-   "fix": "[be specific]",
+   "fix": "be specific",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2687,7 +2687,7 @@
    "pattern": "\\bsynergy\\b",
    "flags": "gi",
    "note": "'synergy' reads machine-made",
-   "fix": "[delete or be specific]",
+   "fix": "delete or be specific",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2785,7 +2785,7 @@
    "pattern": "\\breach\\s+out\\b",
    "flags": "gi",
    "note": "stock phrase: 'reach out'",
-   "fix": "[use a specific verb: email, call, DM, text]",
+   "fix": "use a specific verb: email, call, DM, text",
    "source": "ai-slop-check",
    "tier": "hint",
    "qa": {
@@ -2799,7 +2799,7 @@
    "pattern": "\\btouch\\s+base\\b",
    "flags": "gi",
    "note": "stock phrase: 'touch base'",
-   "fix": "[delete]",
+   "fix": "delete",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2813,7 +2813,7 @@
    "pattern": "\\bcircle\\s+back\\b",
    "flags": "gi",
    "note": "stock phrase: 'circle back'",
-   "fix": "[delete]",
+   "fix": "delete",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2827,7 +2827,7 @@
    "pattern": "\\bapologies\\s+for\\s+the\\s+delay\\b",
    "flags": "gi",
    "note": "stock phrase: 'apologies for the delay'",
-   "fix": "[just respond]",
+   "fix": "just respond",
    "source": "ai-slop-check",
    "tier": "hint",
    "qa": {
@@ -2841,7 +2841,7 @@
    "pattern": "\\bI\\s+wanted\\s+to\\s+reach\\s+out\\b",
    "flags": "gi",
    "note": "stock phrase: 'I wanted to reach out'",
-   "fix": "[just reach out]",
+   "fix": "just reach out",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -2855,7 +2855,7 @@
    "pattern": "\\bI\\s+am\\s+writing\\s+to\\b",
    "flags": "gi",
    "note": "stock phrase: 'I am writing to'",
-   "fix": "[start with the point]",
+   "fix": "start with the point",
    "source": "ai-slop-check",
    "tier": "flag",
    "qa": {
@@ -5088,6 +5088,174 @@
     "human_docs": 0,
     "machine_docs": 0
    }
+  },
+  {
+   "id": "opener-001",
+   "category": "opener",
+   "pattern": "\\bI\\s+hope\\s+(?:this|my)\\s+(?:email|message|note)\\s+finds\\s+you\\s+well\\b",
+   "flags": "gi",
+   "note": "stock email opener",
+   "fix": "start with why you're writing",
+   "source": "tells",
+   "tier": "flag",
+   "qa": {
+    "human_docs": 0,
+    "machine_docs": 0
+   }
+  },
+  {
+   "id": "opener-002",
+   "category": "opener",
+   "pattern": "\\bI\\s+hope\\s+you(?:'re|\\s+are)\\s+(?:doing\\s+)?well\\b",
+   "flags": "gi",
+   "note": "stock email opener",
+   "fix": "start with why you're writing",
+   "source": "tells",
+   "tier": "hint",
+   "qa": {
+    "human_docs": 0.3,
+    "machine_docs": 0
+   }
+  },
+  {
+   "id": "opener-003",
+   "category": "opener",
+   "pattern": "\\bI\\s+came\\s+across\\s+your\\s+(?:profile|work|company|post)\\b",
+   "flags": "gi",
+   "note": "stock cold opener",
+   "fix": "say what you saw and what it made you think",
+   "source": "tells",
+   "tier": "flag",
+   "qa": {
+    "human_docs": 0,
+    "machine_docs": 0
+   }
+  },
+  {
+   "id": "opener-004",
+   "category": "opener",
+   "pattern": "\\b(?:truly|really|deeply)\\s+resonate[sd]?\\b",
+   "flags": "gi",
+   "note": "claimed resonance with nothing behind it",
+   "fix": "name the specific thing and why it matters to you",
+   "source": "tells",
+   "tier": "flag",
+   "qa": {
+    "human_docs": 0,
+    "machine_docs": 2.1
+   }
+  },
+  {
+   "id": "negation-first-008",
+   "category": "negation-first",
+   "pattern": "\\b(?:is|are|was|isn't|aren't|wasn't)\\s+(?:not\\s+)?just\\s+(?:a|an|another|the)\\s+[^,.;]{2,40}[,;—–-]\\s*(?:it|they|this|we)(?:'s|'re|\\s+is|\\s+are)\\b",
+   "flags": "gi",
+   "note": "'not just X, it's Y' pivot",
+   "fix": "say what it is",
+   "source": "tells",
+   "tier": "hint",
+   "qa": {
+    "human_docs": 0,
+    "machine_docs": 0
+   }
+  },
+  {
+   "id": "slop-002",
+   "category": "slop",
+   "pattern": "\\bempower(?:s|ed|ing|ment)?\\b",
+   "flags": "gi",
+   "note": "marketing verb",
+   "fix": "say what people can now do",
+   "source": "tells",
+   "tier": "flag",
+   "qa": {
+    "human_docs": 0,
+    "machine_docs": 0
+   }
+  },
+  {
+   "id": "slop-003",
+   "category": "slop",
+   "pattern": "\\b(?:unlock|unleash|realize)\\s+(?:the\\s+|your\\s+|their\\s+)?(?:full\\s+)?potential\\b",
+   "flags": "gi",
+   "note": "potential-unlocking cliché",
+   "fix": "say what changes, with a number if you have one",
+   "source": "tells",
+   "tier": "flag",
+   "qa": {
+    "human_docs": 0,
+    "machine_docs": 0
+   }
+  },
+  {
+   "id": "slop-004",
+   "category": "slop",
+   "pattern": "\\bin\\s+today'?s\\s+(?:fast[- ]paced|ever[- ]changing|rapidly\\s+evolving|digital|competitive)\\s+(?:world|landscape|environment|market|age|era)\\b",
+   "flags": "gi",
+   "note": "era-setting opener",
+   "fix": "cut it; start with the point",
+   "source": "tells",
+   "tier": "flag",
+   "qa": {
+    "human_docs": 0,
+    "machine_docs": 0
+   }
+  },
+  {
+   "id": "slop-005",
+   "category": "slop",
+   "pattern": "\\bgame[- ]chang(?:er|ing)\\b",
+   "flags": "gi",
+   "note": "hype phrase",
+   "fix": "say what changes",
+   "source": "tells",
+   "tier": "flag",
+   "qa": {
+    "human_docs": 0,
+    "machine_docs": 0
+   }
+  },
+  {
+   "id": "slop-006",
+   "category": "slop",
+   "pattern": "\\b(?:seamless(?:ly)?|frictionless)\\s+(?:experience|integration|workflow)s?\\b",
+   "flags": "gi",
+   "note": "smoothness claim",
+   "fix": "say what step goes away",
+   "source": "tells",
+   "tier": "flag",
+   "qa": {
+    "human_docs": 0,
+    "machine_docs": 0
+   }
+  },
+  {
+   "id": "closer-001",
+   "category": "closer",
+   "pattern": "\\b(?:looking\\s+forward\\s+to\\s+(?:hearing\\s+from\\s+you|connecting)|excited\\s+to\\s+(?:connect|explore))\\b",
+   "flags": "gi",
+   "note": "stock closer",
+   "fix": "end with the one question you want answered",
+   "source": "tells",
+   "tier": "flag",
+   "qa": {
+    "human_docs": 0.7,
+    "machine_docs": 2.1
+   }
+  },
+  {
+   "id": "closer-002",
+   "category": "closer",
+   "pattern": "\\bwould\\s+(?:you\\s+)?(?:love|be\\s+happy)\\s+to\\s+(?:connect|chat|explore)\\b",
+   "flags": "gi",
+   "note": "stock closer",
+   "fix": "propose a specific time or a specific question",
+   "source": "tells",
+   "tier": "flag",
+   "qa": {
+    "human_docs": 0,
+    "machine_docs": 2.1
+   }
   }
  ],
  "qa": {
@@ -5106,8 +5274,8 @@
    "min_machine_share": 0.75
   },
   "tiers": {
-   "flag": 213,
-   "hint": 148,
+   "flag": 223,
+   "hint": 150,
    "off": 2
   }
  }

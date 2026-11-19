@@ -18,17 +18,18 @@ const { matches } = scan(engine, text);
 
 ## What it is and isn't
 
-Tells marks candidates for a reader to judge. It doesn't decide who wrote a text. On held-out samples it flagged at least one tell in 35% of machine-written messages and 6% of human ones, so a clean result proves nothing and a single hit proves little. Use it to edit your own drafts, or to see why someone else's message reads the way it does. Don't use it to hide or reject messages. In a test on the maintainer's own inbox (95 cold messages over 90 days), a filter on how messages sound would have hidden one he chose to answer.
+Tells marks candidates for a reader to judge. It doesn't decide who wrote a text. On held-out samples it flagged at least one tell in 44% of machine-written messages and 6% of human ones, so a clean result proves nothing and a single hit proves little. Use it to edit your own drafts, or to see why someone else's message reads the way it does. Don't use it to hide or reject messages. In a test on the maintainer's own inbox (95 cold messages over 90 days), a filter on how messages sound would have hidden one he chose to answer.
 
 Tools like [Pangram](https://www.pangram.com/) answer a different question, "did a model write this?", with a trained classifier. Tells answers "which sentence gives it away, and what replaces it?"
 
 ## Where the rules come from
 
-`rules/tells.json` holds 363 rules merged by `build/build_rules.py` from three sources:
+`rules/tells.json` holds 375 rules merged by `build/build_rules.py` from four sources:
 
 - the [declauding](https://github.com/oaustegard/claude-skills) linter by Oskar Austegard (MIT): 160 sentence-shape and phrase rules
 - Sam Zoloth's kill-word list and stock-phrase bans: 102 rules
 - Sam's [Margin](https://github.com/SZoloth/margin) writing rules, kept only where the trigger is a short phrase: 101 rules
+- Tells' own rules for classic openers, closers and word forms the others miss ("I hope this email finds you well", "empowers"): 12 rules
 
 Typography rules (curly quotes, dash characters) are left out on purpose. Phones and Macs insert them, so they fire on people.
 
@@ -43,18 +44,18 @@ Tiers are set on half of each corpus and reported on the other half.
 
 | Tier | Rule | Count |
 | --- | --- | --- |
-| `flag` | shown by default: rare in human mail and mostly found in machine text, or a hand-curated slop phrase with no hits either way | 213 |
-| `hint` | shown with `--hints`: fires in more than 1% of human messages, or not clearly more often in machine text | 148 |
+| `flag` | shown by default: rare in human mail and mostly found in machine text, or a hand-curated slop phrase with no hits either way | 223 |
+| `hint` | shown with `--hints`: fires in more than 1% of human messages, or not clearly more often in machine text | 150 |
 | `off` | fires in more than 8% of human messages ("let me know if", "very") | 2 |
 
 Held-out results with the default tier:
 
 | Tells found | Machine messages | Human messages |
 | --- | --- | --- |
-| 1 or more | 35% | 6% |
-| 2 or more | 8% | 0.7% |
+| 1 or more | 44% | 6% |
+| 2 or more | 8% | 1% |
 
-The four model families differ a lot. Tells found something in 7 of 12 GLM samples, 4 of 12 for each Claude model, and 2 of 12 for GPT-6 Luna. Newer models avoid the well-known tells, which is the main reason a tell list decays. A list that is published becomes a list for the next model to avoid.
+The four model families differ a lot. Tells found something in 9 of 12 GLM samples, 5 of 12 for each Claude model, and 2 of 12 for GPT-6 Luna. Newer models avoid the well-known tells, which is the main reason a tell list decays. A list that is published becomes a list for the next model to avoid.
 
 A second check uses Margin's writing rules as labels. Of 30 "AI slop" rules with a sentence-length before and after, Tells flags 8 of the befores and 1 of the afters. On 88 voice and structure rules it shows no signal, as expected: those rules are about voice, not machine tells.
 

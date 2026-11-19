@@ -8,17 +8,17 @@
   "machine_messages": 48
  },
  "tiers": {
-  "flag": 213,
-  "hint": 148,
+  "flag": 223,
+  "hint": 150,
   "off": 2
  },
  "at_least_1": {
-  "machine_caught": 35.4,
-  "human_flagged": 6
+  "machine_caught": 43.8,
+  "human_flagged": 6.3
  },
  "at_least_2": {
   "machine_caught": 8.3,
-  "human_flagged": 0.7
+  "human_flagged": 1
  },
  "at_least_3": {
   "machine_caught": 4.2,
@@ -31,15 +31,15 @@
   },
   "Claude Sonnet 5.5": {
    "n": 12,
-   "caught": 4
+   "caught": 5
   },
   "Claude Opus 5.5": {
    "n": 12,
-   "caught": 4
+   "caught": 5
   },
   "GLM 5.3": {
    "n": 12,
-   "caught": 7
+   "caught": 9
   }
  },
  "human_halves": {
@@ -49,7 +49,7 @@
   },
   "people": {
    "n": 156,
-   "flagged": 9
+   "flagged": 10
   }
  },
  "turned_off": [

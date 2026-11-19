@@ -22,7 +22,7 @@ const hamTest = split(allHam, 1);
 const aiTest = split(allAi, 1);
 
 // Word-level slop lists were curated by hand from real AI text; with no hits either way they stay on.
-const CURATED = /^(kill-word|margin-|slop|chatbot|stock-phrase|significance|vague-attribution|conclusion-tag|transition|gap-fill)/;
+const CURATED = /^(opener|closer|kill-word|margin-|slop|chatbot|stock-phrase|significance|vague-attribution|conclusion-tag|transition|gap-fill)/;
 const HAM_OFF = 0.08; // fires in more than 8% of human messages: off
 const HAM_HINT = 0.01; // more than 1%: hint only
 const MIN_RATIO = 0.75; // share of a rule's per-document rate that comes from machine text

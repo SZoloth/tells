@@ -53,6 +53,10 @@ def add(source, category, pattern, note, fix=None, flags="gi"):
         re.compile(pattern)
     except re.error:
         return
+    if fix:  # the kill list writes some fixes as "[delete]"; show them as plain advice
+        fix = fix.strip()
+        if fix.startswith("[") and fix.endswith("]"):
+            fix = fix[1:-1]
     n = sum(1 for r in rules if r["category"] == category) + 1
     rules.append({"id": f"{category}-{n:03d}", "category": category, "pattern": pattern, "flags": flags,
                   "note": note, "fix": fix, "source": source})
@@ -103,9 +107,28 @@ for category, rule_text, before, detection in rows:
     add("margin", "margin-" + ("kill-word" if category == "kill-words" else "ai-slop"), pattern, note)
     kept_margin += len(rules) > before_n
 
+# 4. Tells' own rules: classic openers and shapes the three sources miss, plus word forms
+# ("empowers", "resonates") that the sources list only in one form.
+OWN = [
+    ("opener", r"\bI\s+hope\s+(?:this|my)\s+(?:email|message|note)\s+finds\s+you\s+well\b", "stock email opener", "start with why you're writing"),
+    ("opener", r"\bI\s+hope\s+you(?:'re|\s+are)\s+(?:doing\s+)?well\b", "stock email opener", "start with why you're writing"),
+    ("opener", r"\bI\s+came\s+across\s+your\s+(?:profile|work|company|post)\b", "stock cold opener", "say what you saw and what it made you think"),
+    ("opener", r"\b(?:truly|really|deeply)\s+resonate[sd]?\b", "claimed resonance with nothing behind it", "name the specific thing and why it matters to you"),
+    ("negation-first", r"\b(?:is|are|was|isn't|aren't|wasn't)\s+(?:not\s+)?just\s+(?:a|an|another|the)\s+[^,.;]{2,40}[,;—–-]\s*(?:it|they|this|we)(?:'s|'re|\s+is|\s+are)\b", "'not just X, it's Y' pivot", "say what it is"),
+    ("slop", r"\bempower(?:s|ed|ing|ment)?\b", "marketing verb", "say what people can now do"),
+    ("slop", r"\b(?:unlock|unleash|realize)\s+(?:the\s+|your\s+|their\s+)?(?:full\s+)?potential\b", "potential-unlocking cliché", "say what changes, with a number if you have one"),
+    ("slop", r"\bin\s+today'?s\s+(?:fast[- ]paced|ever[- ]changing|rapidly\s+evolving|digital|competitive)\s+(?:world|landscape|environment|market|age|era)\b", "era-setting opener", "cut it; start with the point"),
+    ("slop", r"\bgame[- ]chang(?:er|ing)\b", "hype phrase", "say what changes"),
+    ("slop", r"\b(?:seamless(?:ly)?|frictionless)\s+(?:experience|integration|workflow)s?\b", "smoothness claim", "say what step goes away"),
+    ("closer", r"\b(?:looking\s+forward\s+to\s+(?:hearing\s+from\s+you|connecting)|excited\s+to\s+(?:connect|explore))\b", "stock closer", "end with the one question you want answered"),
+    ("closer", r"\bwould\s+(?:you\s+)?(?:love|be\s+happy)\s+to\s+(?:connect|chat|explore)\b", "stock closer", "propose a specific time or a specific question"),
+]
+for category, pattern, note, fix in OWN:
+    add("tells", category, pattern, note, fix)
+
 doc = {
     "name": "tells",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "about": "Phrases and sentence shapes that make prose read machine-made. Each rule is a candidate for a reader to judge, not proof of who wrote the text.",
     "credits": [
         "declauding linter by Oskar Austegard (MIT): https://github.com/oaustegard/claude-skills",
