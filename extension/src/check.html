@@ -2,16 +2,17 @@
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Check text · Tells</title>
+<title>Mark up a draft · Tells</title>
 <link rel="stylesheet" href="ui.css">
+<link rel="stylesheet" href="galley.css">
 <body class="page">
 <main>
-  <h1>Check text</h1>
-  <label class="lbl" for="t-in">Paste a draft or a message</label>
-  <textarea id="t-in" spellcheck="false" autocomplete="off"></textarea>
-  <label class="row"><input type="checkbox" data-hints> <span>Include weaker tells</span></label>
-  <p class="sum" data-sum aria-live="polite"></p>
-  <ol class="notes" data-notes></ol>
+  <header class="page-head"><img src="icons/48.png" alt="" width="32" height="32"><h1>Mark up a draft</h1></header>
+  <div class="desk-bar">
+    <p class="sum" data-sum></p><p class="sr" data-live aria-live="polite"></p>
+    <label class="switch inline"><span>Weaker tells too</span><input type="checkbox" role="switch" data-hints></label>
+  </div>
+  <div data-galley></div>
 </main>
 <script type="module" src="check.js"></script>
 </body>

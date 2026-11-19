@@ -1,6 +1,6 @@
 {
   "name": "tells",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Find the phrases and sentence shapes that make prose read machine-made, and say what to write instead.",
   "type": "module",
   "license": "MIT",

@@ -1,0 +1,54 @@
+/* The galley's look: paper on a desk, red pencil, notes in the margin in handwriting.
+   The page supplies these tokens; the values here are fallbacks. */
+.galley{
+  --g-paper:var(--paper,#fffdf7); --g-ink:var(--ink,#1e1c19); --g-body:var(--body,#4b453e); --g-muted:var(--muted,#655e55); --g-red:var(--red-text,#b0332a);
+  --g-pencil:var(--pencil,#c8392f); --g-wash:var(--wash,rgba(200,57,47,.08)); --g-rule:var(--rule,rgba(84,126,184,.16));
+  --g-text:var(--serif,Newsreader,Georgia,serif); --g-hand:var(--hand,MyHand,"Bradley Hand",cursive); --g-sans:var(--sans,system-ui,sans-serif);
+  --g-size:19px; --g-lead:1.9; --g-pad:44px;
+  position:relative;display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:0;align-items:start
+}
+.g-sheet{position:relative;grid-column:1 / -1;grid-row:1}
+.g-paper{position:relative;width:calc(100% - 274px);min-height:440px;background:var(--g-paper);border-radius:3px;
+  box-shadow:0 1px 0 rgba(0,0,0,.04),0 30px 60px -34px rgba(60,40,10,.55),0 2px 6px -2px rgba(60,40,10,.12);
+}
+.g-proof,.g-input{display:block;box-sizing:border-box;width:100%;margin:0;padding:var(--g-pad) var(--g-pad) calc(var(--g-pad) + 8px);
+  font:400 var(--g-size)/var(--g-lead) var(--g-text);letter-spacing:0;white-space:pre-wrap;overflow-wrap:break-word;word-break:normal;tab-size:4}
+.g-proof{color:var(--g-ink);min-height:440px}
+.g-proof mark{background:none;color:inherit;border-radius:2px;transition:background-color .2s}
+.g-proof mark.is-on{background:var(--g-wash)}
+.g-input{position:absolute;inset:0;border:0;background:transparent;color:transparent;caret-color:var(--g-ink);resize:none;overflow:hidden;outline:none;z-index:1}
+.g-input::placeholder{color:var(--g-muted);opacity:1}
+.g-input::selection{background:rgba(200,57,47,.22);color:transparent}
+.galley .g-input:focus-visible{outline:none}
+.g-paper:has(.g-input:focus-visible){outline:2px solid var(--g-pencil);outline-offset:5px}
+.galley.is-composing .g-input{color:var(--g-ink)}
+.galley.is-composing .g-proof{color:transparent}
+.g-pencil{position:absolute;left:0;top:0;pointer-events:none;overflow:visible;z-index:2}
+.g-loop{fill:none;stroke:var(--g-pencil);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;opacity:.92;filter:url(#g-graphite);transition:stroke-width .2s}
+.g-loop.is-on{stroke-width:2.6}
+.g-num{font:400 15px var(--g-hand);fill:var(--g-red);stroke:var(--g-paper);stroke-width:3px;paint-order:stroke}
+.draw{animation:g-draw .55s cubic-bezier(.3,.7,.2,1) forwards}
+@keyframes g-draw{to{stroke-dashoffset:0}}
+
+/* the margin */
+.g-notes{list-style:none;margin:0;padding:0;grid-column:2;grid-row:1;position:relative;align-self:stretch}
+.g-notes li{position:absolute;left:0;right:0}
+.g-go{all:unset;box-sizing:border-box;display:grid;grid-template-columns:18px 1fr;gap:0 6px;width:100%;cursor:pointer;border-radius:4px}
+.g-go:focus-visible{outline:2px solid var(--g-pencil);outline-offset:3px}
+.g-notes li.enter{opacity:0;animation:g-in .4s ease-out forwards}
+@keyframes g-in{from{opacity:0;transform:translateX(-4px)}to{opacity:1;transform:none}}
+.g-n{grid-row:span 2;font:600 11px/2.2 var(--g-sans);color:var(--g-red)}
+.g-fix{font:400 21px/1.08 var(--g-hand);color:var(--g-red)}
+.g-why{margin-top:4px;font:400 12.5px/1.4 var(--g-sans);color:var(--g-muted)}
+.g-why q{quotes:"“" "”";color:var(--g-body)}
+.g-notes li.is-on .g-fix{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+/* narrow: the margin folds under the paper as a numbered list */
+@media (max-width:859.98px){
+  .galley{grid-template-columns:1fr}
+  .g-paper{width:100%}
+  .galley{--g-pad:24px;--g-size:17px}
+  .g-notes{grid-column:1;grid-row:2;margin-top:22px;display:grid;gap:14px}
+  .g-notes li{position:static}
+}
+@media (prefers-reduced-motion:reduce){.draw,.g-notes li.enter{animation:none;stroke-dashoffset:0!important;opacity:1}}

@@ -10,13 +10,13 @@ Everything the Chrome Web Store developer dashboard asks for, in order. Upload `
 - **Language:** English
 - **Description:**
 
-> Tells underlines the phrases and sentence shapes that make writing read machine-made, right in the box you're typing in: Gmail, LinkedIn and X, plus any other site you turn it on for. Click the count in the corner to see each one, what it signals, and what to write instead.
+> Tells underlines the phrases and sentence shapes that make writing read machine-made, right in the box you're typing in: Gmail, LinkedIn and X, plus any other site you turn it on for. Point at a marked phrase, or put your cursor in it, and a margin note opens with what it signals and what to write instead.
 >
 > It's a lens, not a lie detector. A mark means a sentence reads the way model output often reads. It doesn't prove who wrote it. On held-out samples Tells marks 44% of machine-written messages and 6% of human emails written before ChatGPT, so use it to edit your own drafts, not to judge other people's.
 >
 > - Works as you type, without changing the page
 > - Turn it on for any other site from the toolbar button; Chrome asks you first
-> - Right-click selected text and choose "Check with Tells"
+> - Right-click selected text and choose "Check with Tells" to see it marked up on a page of its own
 > - Turn it off for a site the same way
 > - 375 rules, each tested on human and machine-written text
 > - Open source (MIT): https://github.com/SZoloth/tells

@@ -4,15 +4,16 @@
 <title>Tells</title>
 <link rel="stylesheet" href="ui.css">
 <body class="popup">
-<header><img src="icons/32.png" alt="" width="20" height="20"><b>Tells</b></header>
-<label class="row" data-on-row><input type="checkbox" data-site> <span>Check text boxes on <b data-host>this site</b></span></label>
-<div data-ask-row hidden>
-  <p class="note">Tells runs on Gmail, LinkedIn and X. Other sites need your OK first.</p>
+<header><img src="icons/32.png" alt="" width="22" height="22"><b>Tells</b><span class="state" data-state></span></header>
+<p class="site" data-site-line><span class="host" data-host>this page</span></p>
+<label class="switch" data-on-row><span>Mark tells on this site</span><input type="checkbox" role="switch" data-site></label>
+<div class="ask" data-ask-row hidden>
+  <p>Tells runs on Gmail, LinkedIn and X. Other sites need your OK first.</p>
   <button class="btn" type="button" data-ask>Turn on for <span data-host>this site</span></button>
 </div>
-<label class="row"><input type="checkbox" data-hints> <span>Include weaker tells</span></label>
-<a class="btn quiet" href="check.html" target="_blank">Check pasted text</a>
-<p class="fine">Tells runs on your device. Nothing you type is sent anywhere.</p>
+<label class="switch"><span>Weaker tells too</span><input type="checkbox" role="switch" data-hints></label>
+<a class="btn quiet" href="check.html" target="_blank">Mark up pasted text</a>
+<p class="fine">Runs on your device. Nothing you type is sent anywhere.</p>
 <script type="module" src="popup.js"></script>
 </body>
 </html>

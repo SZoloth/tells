@@ -22,6 +22,10 @@ site.disabled = !web;
 const s = await chrome.storage.sync.get({ enabled: true, hints: false, off: [] });
 site.checked = web && s.enabled && !s.off.includes(host);
 hints.checked = s.hints;
+const state = document.querySelector("[data-state]");
+const showState = () => { state.textContent = !web ? "" : !granted ? "off here" : site.checked ? "on here" : "off here"; state.classList.toggle("on", web && granted && site.checked); };
+showState();
+site.addEventListener("change", showState);
 
 site.addEventListener("change", async () => {
   const { off } = await chrome.storage.sync.get({ off: [] });
@@ -31,7 +35,11 @@ site.addEventListener("change", async () => {
 hints.addEventListener("change", () => chrome.storage.sync.set({ hints: hints.checked }));
 
 document.querySelector("[data-ask]").addEventListener("click", async () => {
-  if (!(await chrome.permissions.request({ origins: [origin] }))) return;
+  if (!(await chrome.permissions.request({ origins: [origin] }))) {
+    if (!askRow.querySelector(".err")) askRow.appendChild(Object.assign(document.createElement("p"), { className: "err" }));
+    askRow.querySelector(".err").textContent = "Chrome didn’t allow it. Try again, or turn it on in the extension’s settings.";
+    return;
+  }
   const id = `tells-${host}`;
   const existing = await chrome.scripting.getRegisteredContentScripts({ ids: [id] });
   if (!existing.length) {

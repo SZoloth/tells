@@ -17,6 +17,7 @@ const engine = fs.readFileSync(path.join(root, "src/tells.js"), "utf8");
 const rules = fs.readFileSync(path.join(root, "rules/tells.json"), "utf8");
 fs.copyFileSync(path.join(root, "src/tells.js"), path.join(dist, "tells.js")); // the checker page imports it as a module
 fs.copyFileSync(path.join(root, "rules/tells.json"), path.join(dist, "tells.json"));
+for (const f of ["galley.js", "galley.css"]) fs.copyFileSync(path.join(root, "web", f), path.join(dist, f)); // the checker page's galley
 
 // Content scripts can't be modules, so the scanner goes in as plain functions with the rules inlined.
 const plain = engine.replace(/^export /gm, "");
