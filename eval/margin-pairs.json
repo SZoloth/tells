@@ -1,0 +1,14 @@
+{
+ "ai_slop_and_kill_words": {
+  "pairs": 30,
+  "before_flagged": 8,
+  "after_flagged": 1,
+  "fixed": 8
+ },
+ "all_other_rules": {
+  "pairs": 88,
+  "before_flagged": 6,
+  "after_flagged": 8,
+  "fixed": 2
+ }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "tells",
+  "version": "0.1.0",
+  "description": "Find the phrases and sentence shapes that make prose read machine-made, and say what to write instead.",
+  "type": "module",
+  "license": "MIT",
+  "main": "src/tells.js",
+  "bin": { "tells": "bin/tells.mjs" },
+  "files": ["src", "rules", "bin"],
+  "scripts": { "test": "node --test test/*.test.mjs" }
+}

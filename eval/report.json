@@ -1,0 +1,59 @@
+{
+ "tuned_on": {
+  "human_messages": 300,
+  "machine_messages": 48
+ },
+ "reported_on": {
+  "human_messages": 300,
+  "machine_messages": 48
+ },
+ "tiers": {
+  "flag": 213,
+  "hint": 148,
+  "off": 2
+ },
+ "at_least_1": {
+  "machine_caught": 35.4,
+  "human_flagged": 6
+ },
+ "at_least_2": {
+  "machine_caught": 8.3,
+  "human_flagged": 0.7
+ },
+ "at_least_3": {
+  "machine_caught": 4.2,
+  "human_flagged": 0
+ },
+ "by_model": {
+  "GPT-6 Luna": {
+   "n": 12,
+   "caught": 2
+  },
+  "Claude Sonnet 5.5": {
+   "n": 12,
+   "caught": 4
+  },
+  "Claude Opus 5.5": {
+   "n": 12,
+   "caught": 4
+  },
+  "GLM 5.3": {
+   "n": 12,
+   "caught": 7
+  }
+ },
+ "human_halves": {
+  "sam": {
+   "n": 144,
+   "flagged": 9
+  },
+  "people": {
+   "n": 156,
+   "flagged": 9
+  }
+ },
+ "turned_off": [
+  "chatbot-012 (chatbot residue) fires on 11.3% of human messages",
+  "filler-intensifier-002 (filler intensifier: 'very') fires on 9.7% of human messages"
+ ]
+}
