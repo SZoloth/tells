@@ -54,6 +54,6 @@
  },
  "turned_off": [
   "chatbot-012 (chatbot residue) fires on 11.3% of human messages",
-  "filler-intensifier-002 (filler intensifier: 'very') fires on 9.7% of human messages"
+  "filler-intensifier-002 (filler intensifier) fires on 9.7% of human messages"
  ]
 }

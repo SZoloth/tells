@@ -3,3 +3,5 @@ eval/*.local.json
 node_modules/
 __pycache__/
 build/*.local.txt
+extension/dist/
+extension/*.zip

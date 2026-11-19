@@ -16,6 +16,17 @@ const engine = compile(rulesJson);   // rules/tells.json
 const { matches } = scan(engine, text);
 ```
 
+## Chrome extension
+
+The extension underlines tells in whatever text box you're typing in (Gmail, LinkedIn, X or anywhere else), with a count in the corner that opens the notes. Right-click selected text and choose "Check with Tells" to check anything on a page. The toolbar button turns it off for a site. It needs no API key, because it calls no model.
+
+To install it before it's on the Chrome Web Store:
+
+1. Download `tells-extension-<version>.zip` from the [latest release](https://github.com/SZoloth/tells/releases/latest) and unzip it.
+2. Open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, and choose the unzipped folder.
+
+Build it yourself with `node build/build_extension.mjs`; the listing text and screenshots for the Web Store are in `extension/store/`.
+
 ## What it is and isn't
 
 Tells marks candidates for a reader to judge. It doesn't decide who wrote a text. On held-out samples it flagged at least one tell in 44% of machine-written messages and 6% of human ones, so a clean result proves nothing and a single hit proves little. Use it to edit your own drafts, or to see why someone else's message reads the way it does. Don't use it to hide or reject messages. In a test on the maintainer's own inbox (95 cold messages over 90 days), a filter on how messages sound would have hidden one he chose to answer.
@@ -69,6 +80,10 @@ node eval/ruleqa.mjs            # needs the local corpora in eval/corpus/
 node eval/margin_pairs.mjs      # needs ~/.margin/margin.db
 pnpm test
 ```
+
+## Privacy
+
+Tells runs entirely on your device. The scanner, the web page, the extension and the Margin lens make no network requests with your text and collect nothing. The extension stores two settings in Chrome's sync storage: the sites where it's off, and whether to show weaker tells.
 
 ## License
 

@@ -71,11 +71,11 @@ for category, pattern, note in lint.RULES:
 # 2. ai-slop-check
 slop = load(HOME / ".claude/scripts/ai-slop-check.py", "ai_slop_check")
 for word, fix in slop.KILL_WORDS.items():
-    add("ai-slop-check", "kill-word", word_rx(word), f"'{word}' reads machine-made", fix)
+    add("ai-slop-check", "kill-word", word_rx(word), "reads machine-made", fix)
 for phrase, fix in slop.SAM_SPECIFIC_BANS.items():
-    add("ai-slop-check", "stock-phrase", word_rx(phrase), f"stock phrase: '{phrase}'", fix)
+    add("ai-slop-check", "stock-phrase", word_rx(phrase), "stock phrase", fix)
 for phrase in slop.TRANSITION_PADDING:
-    add("ai-slop-check", "transition", word_rx(phrase), f"padding transition: '{phrase}'", "cut it, or use a plain connective")
+    add("ai-slop-check", "transition", word_rx(phrase), "padding transition", "cut it, or use a plain connective")
 for phrase in slop.CHATBOT_ARTIFACTS:
     add("ai-slop-check", "chatbot", re.escape(phrase).replace(r"\ ", r"\s+"), "chatbot residue", "delete it")
 for phrase in slop.SIGNIFICANCE_INFLATION:
@@ -85,7 +85,7 @@ for phrase in slop.VAGUE_ATTRIBUTION:
 for phrase in slop.CONCLUSION_TAGS:
     add("ai-slop-check", "conclusion-tag", word_rx(phrase), "conclusion tag", "cut it; end on the point")
 for word in slop.FILLER_INTENSIFIERS:
-    add("ai-slop-check", "filler-intensifier", word_rx(word), f"filler intensifier: '{word}'", "cut it")
+    add("ai-slop-check", "filler-intensifier", word_rx(word), "filler intensifier", "cut it")
 
 # 3. Margin: short trigger phrases only
 # Triggers lifted from the maintainer's own drafts, not general tells. The list is git-ignored.

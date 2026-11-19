@@ -99,3 +99,19 @@ test("no rule quotes a maintainer's correction example (checked when ~/.margin/m
     for (const g of grams(`${r.pattern} ${r.note} ${r.fix || ""}`)) assert.ok(!examples.has(g), `${r.id} quotes "${g}"`);
   }
 });
+
+test("the extension builds, its content script parses, and no extension file calls the network", async () => {
+  const { execFileSync } = await import("node:child_process");
+  const root = new URL("..", import.meta.url).pathname;
+  execFileSync("node", ["build/build_extension.mjs"], { cwd: root });
+  execFileSync("node", ["--check", "extension/dist/content.js"], { cwd: root });
+  const manifest = JSON.parse(fs.readFileSync(new URL("../extension/dist/manifest.json", import.meta.url), "utf8"));
+  const pkg = JSON.parse(fs.readFileSync(new URL("../package.json", import.meta.url), "utf8"));
+  assert.equal(manifest.version, pkg.version);
+  for (const f of fs.readdirSync(new URL("../extension/dist", import.meta.url)).filter((f) => f.endsWith(".js"))) {
+    const code = fs.readFileSync(new URL(`../extension/dist/${f}`, import.meta.url), "utf8");
+    for (const call of code.match(/fetch\([^)]*\)|XMLHttpRequest|sendBeacon|WebSocket/g) || []) {
+      assert.match(call, /chrome\.runtime\.getURL/, `${f} makes a network call: ${call}`);
+    }
+  }
+});
