@@ -26,6 +26,8 @@ fs.writeFileSync(path.join(dist, "content.js"),
 
 const manifest = JSON.parse(fs.readFileSync(path.join(dist, "manifest.json"), "utf8"));
 manifest.version = pkg.version;
+// For local testing only: TELLS_TEST_ORIGIN=http://localhost:8766/* adds a fixture site to the built-in list.
+if (process.env.TELLS_TEST_ORIGIN) manifest.content_scripts[0].matches.push(process.env.TELLS_TEST_ORIGIN);
 fs.writeFileSync(path.join(dist, "manifest.json"), JSON.stringify(manifest, null, 2) + "\n");
 
 const zip = path.join(root, `extension/tells-extension-${pkg.version}.zip`);

@@ -18,7 +18,7 @@ const { matches } = scan(engine, text);
 
 ## Chrome extension
 
-The extension underlines tells in whatever text box you're typing in (Gmail, LinkedIn, X or anywhere else), with a count in the corner that opens the notes. Right-click selected text and choose "Check with Tells" to check anything on a page. The toolbar button turns it off for a site. It needs no API key, because it calls no model.
+The extension underlines tells in the text box you're typing in, with a count in the corner that opens the notes. It runs on Gmail, LinkedIn and X; for any other site, click the toolbar button and choose "Turn on for this site", and Chrome asks you to allow that one site. Right-click selected text and choose "Check with Tells" to check anything on a page. The toolbar button also turns it off for a site. It needs no API key, because it calls no model.
 
 To install it before it's on the Chrome Web Store:
 
