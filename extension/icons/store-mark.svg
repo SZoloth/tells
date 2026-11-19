@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Chrome Web Store: 96x96 artwork centered in 128x128 with 16px transparent padding -->
+  <g transform="translate(16 16)">
+    <rect width="96" height="96" rx="22" fill="#1e1c19"/>
+    <rect x="13" y="18" width="70" height="60" rx="7" fill="#fffdf7"/>
+    <path d="M24 31h48M24 44h30" stroke="#b5ad9f" stroke-width="5" stroke-linecap="round"/>
+    <path d="M24 57h8" stroke="#b5ad9f" stroke-width="5" stroke-linecap="round"/>
+    <path d="M40 57h32" stroke="#1e1c19" stroke-width="5" stroke-linecap="round"/>
+    <path d="M40 67q3.2-4 6.4 0t6.4 0t6.4 0t6.4 0t6.4 0" stroke="#c8392f" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

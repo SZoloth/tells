@@ -22,6 +22,7 @@ Everything the Chrome Web Store developer dashboard asks for, in order. Upload `
 >
 > Everything runs on your device. Tells makes no network requests and collects nothing.
 
+- **Store icon (128×128, 96×96 artwork with transparent padding):** `store-icon-128.png`
 - **Screenshots (1280×800):** `screenshot-1.png`, `screenshot-2.png`
 - **Small promo tile (440×280):** `promo-tile-440x280.png`
 - **Homepage URL:** https://szoloth.com/tells
