@@ -20,10 +20,9 @@ const { matches } = scan(engine, text);
 
 The extension underlines tells in the text box you're typing in, with a count in the corner that opens the notes. It runs on Gmail, LinkedIn and X; for any other site, click the toolbar button and choose "Turn on for this site", and Chrome asks you to allow that one site. Right-click selected text and choose "Check with Tells" to check anything on a page. The toolbar button also turns it off for a site. It needs no API key, because it calls no model.
 
-To install it before it's on the Chrome Web Store:
+Install it from the [Chrome Web Store](https://chromewebstore.google.com/detail/tells-spot-machine-made-w/haaagmfenmhbhdpjmefjojaljmkcchbm).
 
-1. Download `tells-extension-<version>.zip` from the [latest release](https://github.com/SZoloth/tells/releases/latest) and unzip it.
-2. Open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, and choose the unzipped folder.
+To run a build that isn't in the store yet, download `tells-extension-<version>.zip` from the [latest release](https://github.com/SZoloth/tells/releases/latest) and unzip it. Then open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked** and choose the unzipped folder.
 
 Build it yourself with `node build/build_extension.mjs`; the listing text and screenshots for the Web Store are in `extension/store/`.
 
